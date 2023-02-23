@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "- The current package includes the React version with Demo 1 only and other demos can be downloaded online from [Metronic Downloads](//devs.keenthemes.com/metronic)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "author": "Mehak Khanna",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.10.0",
+    "nodemon": "^2.0.20"
+  }
+}
