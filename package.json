@@ -4,7 +4,7 @@
   "description": "- The current package includes the React version with Demo 1 only and other demos can be downloaded online from [Metronic Downloads](//devs.keenthemes.com/metronic)",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "nodemon backend/server.js"
   },
   "author": "Mehak Khanna",
   "license": "ISC",

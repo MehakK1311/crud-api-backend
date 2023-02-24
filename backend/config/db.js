@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const colors = require("colors");
 
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
   try {

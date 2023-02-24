@@ -49,7 +49,7 @@ const SignInMethod: React.FC = () => {
     validationSchema: emailFormValidationSchema,
     onSubmit: (values) => {
       setLoading1(true)
-      setTimeout((values) => {
+      setTimeout((values: any) => {
         setEmailUpdateData(values)
         setLoading1(false)
         setShowEmailForm(false)
@@ -66,7 +66,7 @@ const SignInMethod: React.FC = () => {
     validationSchema: passwordFormValidationSchema,
     onSubmit: (values) => {
       setLoading2(true)
-      setTimeout((values) => {
+      setTimeout((values: any) => {
         setPasswordUpdateData(values)
         setLoading2(false)
         setPasswordForm(false)
@@ -94,7 +94,6 @@ const SignInMethod: React.FC = () => {
               <div className='fs-6 fw-bolder mb-1'>Email Address</div>
               <div className='fw-bold text-gray-600'>support@keenthemes.com</div>
             </div>
-
             <div
               id='kt_signin_email_edit'
               className={'flex-row-fluid ' + (!showEmailForm && 'd-none')}
