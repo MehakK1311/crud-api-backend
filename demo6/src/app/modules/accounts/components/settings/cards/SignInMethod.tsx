@@ -4,6 +4,7 @@ import {KTSVG} from '../../../../../../_metronic/helpers'
 import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import {IUpdatePassword, IUpdateEmail, updatePassword, updateEmail} from '../SettingsModel'
+import axios from 'axios';
 
 const emailFormValidationSchema = Yup.object().shape({
   newEmail: Yup.string()
@@ -50,6 +51,16 @@ const SignInMethod: React.FC = () => {
     onSubmit: (values) => {
       setLoading1(true)
       setTimeout((values: any) => {
+        // axios
+        //   .post('http://localhost:5000/api/user', values)
+        //   .then(response => {
+        //     console.log(response);
+        //   })
+        //   .catch(error => {
+        //     console.log(error.response);
+        //   });
+        console.log(values);
+        alert(JSON.stringify(values, null, 2));
         setEmailUpdateData(values)
         setLoading1(false)
         setShowEmailForm(false)
@@ -67,6 +78,7 @@ const SignInMethod: React.FC = () => {
     onSubmit: (values) => {
       setLoading2(true)
       setTimeout((values: any) => {
+        console.log(values);
         setPasswordUpdateData(values)
         setLoading2(false)
         setPasswordForm(false)
