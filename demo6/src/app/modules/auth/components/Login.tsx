@@ -3,11 +3,12 @@ import {useState} from 'react'
 import * as Yup from 'yup'
 import axios from 'axios'
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useFormik} from 'formik'
 import {getUserByToken, login} from '../core/_requests'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {useAuth} from '../core/Auth'
+
 
 const POSTURL = 'http://localhost:5000/api/user/login';
 
@@ -38,17 +39,20 @@ export function Login() {
   const [loading, setLoading] = useState(false)
   const {saveAuth, setCurrentUser} = useAuth()
 
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {
+    onSubmit: async (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       try {
         
-        // const {data: auth} = await login(values)
-        // saveAuth(auth)
+        const {data: auth} = await login(values)
+        saveAuth(auth)
+        navigate("/dashboard");
         // const {data: user} = await getUserByToken(auth.api_token)
-        // setCurrentUser(user)
+        // setCurrentUser(data)
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
@@ -165,6 +169,7 @@ export function Login() {
           id='kt_sign_in_submit'
           className='btn btn-lg btn-primary w-100 mb-5'
           disabled={formik.isSubmitting || !formik.isValid}
+
         >
           {!loading && <span className='indicator-label'>Continue</span>}
           {loading && (
